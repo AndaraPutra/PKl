@@ -1,0 +1,60 @@
+<div class="container mt-3 ">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+</div>
+<body>
+ 
+    <input type="date" id="startDate" name="startDate">
+    +
+    <input type="number" id="days" name="days">
+    <input type="submit" onclick="getdate()">
+    <p id="follow_Date" name="follow_Date"></p>
+
+ <script>
+   
+         $(document).ready(function () {
+            $('#startDate').datepicker();
+            $('#days').datepicker();
+        });
+  
+        function getdate() {
+            var tt = document.getElementById('startDate').value;
+            var date = new Date(tt);
+            var newdate = new Date(date);
+  
+            var ddd =  Number(document.getElementById('days').value);
+  
+  
+            newdate.setDate(newdate.getDate() + ddd);
+            
+            var days = ['Minggu','Senin','Selasa','Rabu','Kamis',"Jum'at",'Sabtu'];
+            var dd = newdate.getDate();
+            var mm = newdate.getMonth() + 1;
+            var y = newdate.getFullYear();
+            var tanggal = `${dd}-${mm}-${y}`;
+
+            var hasil = ` Tanggal  ${tanggal} , Hari ${days[newdate.getDay()]} ${ddd} hari lagi dari sekarang. ` ;
+            var print = document.getElementById('follow_Date').innerHTML = hasil;S
+            console.log(test)
+            module.exports = {getdate};
+        }
+</script>
+
+<table class="table"> 
+    <tbody> 
+        <% data.forEach((data, i) => { i++ %> 
+          <tr> 
+            <th scope="row"> </th> 
+ 
+              <td><%= data.keterangan %> </td> 
+   
+          </tr> 
+        <% }) %> 
+      </tbody> 
+    </table>
+</body>
+</html>
